@@ -100,7 +100,7 @@ const ChangePassword: FC<Props> = (): JSX.Element => {
      <input
       className=" px-4 py-1.5 rounded-md bg-green-600 cursor-pointer text-white text-center hover:opacity-80 transition-all duration-200"
       type="submit"
-      value={'Lưu'}
+      value={'Đổi mật khẩu'}
      />
     </div>
    </form>

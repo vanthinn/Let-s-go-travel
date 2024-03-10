@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import { useAuthContext } from '../../contexts/authContext'
 import { IUser } from '../../interfaces/user'
 import { updateProfile } from '../../services/user.service'
+import { toastMessage } from '../../utils/toastMessage'
 
 interface Props {}
 
@@ -14,6 +15,7 @@ const Profile: FC<Props> = (): JSX.Element => {
   const res = await updateProfile(data)
   if (res.status === 205) {
    setUser({ ...user, ...data })
+   toastMessage('Thay đổi thông tin thành công', 'success')
   }
  }
 
@@ -87,7 +89,7 @@ const Profile: FC<Props> = (): JSX.Element => {
        type="radio"
        id="Nam"
        name="GT"
-       value="Nam"
+       value="0"
        onChange={(e) => setData({ ...data, gender: e.target.value || '' })}
       />
       <label>Nam</label>
@@ -96,13 +98,15 @@ const Profile: FC<Props> = (): JSX.Element => {
        type="radio"
        id="Nu"
        name="GT"
-       value="Nu"
+       value="1"
        onChange={(e) => setData({ ...data, gender: e.target.value || '' })}
       />
       <label>Nữ</label>
      </div>
     ) : (
-     <span className="col-span-9 text-xl">Nam</span>
+     <span className="col-span-9 text-xl">
+      {data?.gender && String(data?.gender) === '0' ? 'Nam' : 'Nữ' || 'Chưa có'}
+     </span>
     )}
    </div>
 
