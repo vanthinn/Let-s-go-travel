@@ -10,6 +10,7 @@ import { ITour } from '../../interfaces/tour'
 import { useNavigate } from 'react-router-dom'
 import { area, special } from '../../commom/constants'
 import { option } from '../../components/Autocomplete/Autocomplete'
+import HoverRating from '../../components/HoverRating'
 
 interface Props {}
 
@@ -112,6 +113,14 @@ shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px
           {item.address}
          </label>
         </div>
+        <div className="my-2 flex ">
+         <HoverRating
+          value={item?.rate || null}
+          isHover={false}
+          precision={0.5}
+          css="no-center"
+         />
+        </div>
        </div>
       </div>
      ))}
@@ -188,6 +197,14 @@ shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px
            <HiOutlineLocationMarker className="h-5 w-5 inline mr-1.5 mb-0.5 " />
            {item.address}
           </label>
+         </div>
+         <div className="my-2 flex ">
+          <HoverRating
+           value={item?.rate || null}
+           isHover={false}
+           precision={0.5}
+           css="no-center"
+          />
          </div>
         </div>
        </div>

@@ -18,8 +18,7 @@ const Profile: FC<Props> = (): JSX.Element => {
    toastMessage('Thay đổi thông tin thành công', 'success')
   }
  }
-
- console.log(user?.gender)
+ if (user?.gender !== undefined) console.log(parseInt(user?.gender) === 0)
 
  return (
   <div className="p-4 bp-4  border border-gray-300 rounded-xl flex flex-col">
@@ -107,7 +106,11 @@ const Profile: FC<Props> = (): JSX.Element => {
      </div>
     ) : (
      <span className="col-span-9 text-xl">
-      {data?.gender && String(data?.gender) === '0' ? 'Nam' : 'Nữ' || 'Chưa có'}
+      {user?.gender !== undefined
+       ? parseInt(user.gender) === 0
+         ? 'Nam'
+         : 'Nữ'
+       : 'Chưa có'}
      </span>
     )}
    </div>

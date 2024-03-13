@@ -26,6 +26,10 @@ const DetailTourist: FC<Props> = (): JSX.Element => {
    setRate(rate)
    toastMessage('Cảm ơn bạn đánh giá', 'success')
   }
+
+  if (res?.status === 401) {
+   toastMessage('Bạn vui lòng đăng nhập để đánh giá', 'error')
+  }
  }
 
  useEffect(() => {
@@ -43,7 +47,12 @@ const DetailTourist: FC<Props> = (): JSX.Element => {
 
    <div className="flex  items-center">
     <span className="font-semibold text-[18px] mr-4">Đánh giá:</span>
-    <HoverRating value={tour?.rate || null} isHover={false} />
+    <HoverRating
+     value={tour?.rate || null}
+     isHover={false}
+     precision={0.5}
+     css="no-center"
+    />
     <span className="ml-[-72px] font-semibold">{tour?.rate} </span>
    </div>
    <div
@@ -71,7 +80,12 @@ const DetailTourist: FC<Props> = (): JSX.Element => {
     <p className="font-semibold text-base">
      Hãy gửi đánh giá đến cho chúng tôi
     </p>
-    <HoverRating value={rate} setValue={rateTour} isHover={true} />
+    <HoverRating
+     value={rate}
+     setValue={rateTour}
+     isHover={true}
+     precision={1}
+    />
    </div>
   </div>
  )
