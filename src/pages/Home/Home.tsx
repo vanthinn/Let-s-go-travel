@@ -10,7 +10,6 @@ import { ITour } from '../../interfaces/tour'
 import { useNavigate } from 'react-router-dom'
 import { area, special } from '../../commom/constants'
 import { option } from '../../components/Autocomplete/Autocomplete'
-import HoverRating from '../../components/HoverRating'
 
 interface Props {}
 
@@ -83,8 +82,6 @@ const Home: FC<Props> = (): JSX.Element => {
 
  return (
   <div>
-   <HoverRating />
-
    <div className="px-24 py-4">
     <div className="flex gap-2 items-center text-[#494edc]">
      <HiOutlineTrendingUp className="h-8 w-8 " />
