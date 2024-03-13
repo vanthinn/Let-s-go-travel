@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { getHistory } from '../../services/user.service'
 import { IHistory } from '../../interfaces/tour'
+import HoverRating from '../../components/HoverRating'
 
 interface Props {}
 
@@ -43,6 +44,12 @@ const History: FC<Props> = (): JSX.Element => {
          {item?.tourist?.address}
         </label>
        </div>
+       <HoverRating
+        value={item?.tourist?.rate || null}
+        isHover={false}
+        precision={0.5}
+        css="no-center"
+       />
       </div>
      </div>
     ))}
