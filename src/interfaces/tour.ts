@@ -7,6 +7,7 @@ export interface ITour {
     info: string,
     time_visit: number,
     url_imgs: string
+    rate: number
 }
 
 export interface IHistory {

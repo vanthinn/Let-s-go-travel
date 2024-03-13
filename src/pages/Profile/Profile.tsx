@@ -19,6 +19,8 @@ const Profile: FC<Props> = (): JSX.Element => {
   }
  }
 
+ console.log(user?.gender)
+
  return (
   <div className="p-4 bp-4  border border-gray-300 rounded-xl flex flex-col">
    <h4 className="text-2xl font-semibold text-[#19245D] mb-4">

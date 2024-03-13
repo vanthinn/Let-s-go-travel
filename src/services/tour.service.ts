@@ -21,4 +21,14 @@ const getTourById = async (id: any) => {
 
 }
 
-export { getAllTour, getTourById }
+const rating = async (data: any) => {
+    try {
+        const res = await BaseURL.patch('rating', data)
+        return res.data
+    } catch (error: any) {
+        toastMessage(String(error?.response?.data.message || error?.message), 'error')
+    }
+
+}
+
+export { getAllTour, getTourById, rating }
