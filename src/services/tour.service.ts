@@ -31,4 +31,14 @@ const rating = async (data: any) => {
 
 }
 
-export { getAllTour, getTourById, rating }
+const recommend = async () => {
+    try {
+        const res = await BaseURL.get('recommend')
+        return res.data
+    } catch (error: any) {
+        toastMessage(String(error?.response?.data.message || error?.message), 'error')
+    }
+
+}
+
+export { getAllTour, getTourById, rating, recommend }

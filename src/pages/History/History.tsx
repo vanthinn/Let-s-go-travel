@@ -39,7 +39,9 @@ const History: FC<Props> = (): JSX.Element => {
       <div className="flex flex-col ">
        <h4 className="mt-2 text-xl font-semibold">{item?.tourist?.name}</h4>
        <div className="mt-0.5 flex gap-1 ">
-        <label className="" title={item?.tourist?.address}>
+        <label
+         className="line-clamp-1 overflow-hidden"
+         title={item?.tourist?.address}>
          <HiOutlineLocationMarker className="h-5 w-5 inline mr-1.5 mb-0.5 " />
          {item?.tourist?.address}
         </label>

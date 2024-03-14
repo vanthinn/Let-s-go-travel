@@ -43,7 +43,7 @@ const SignUp: FC<Props> = (): JSX.Element => {
   const res = await signUp(user)
   if (res?.status === 201) {
    localStorage.setItem('auth', JSON.stringify({ token: res.data }))
-   navigate('/')
+   navigate('/login')
    toastMessage('Sign up Successfully', 'success')
   }
 
